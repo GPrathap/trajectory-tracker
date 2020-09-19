@@ -6,7 +6,7 @@ __Authors__: Geesara Kulathunga, Dmitry Devitt, Roman Fedorenko and Alexandr Kli
 
 <p align="center">
   <img src="results/real_1.png" width = "400" height = "225"/>
-  <img src="results/real_2.png" width = "400" height = "225"/>
+  <img src="results/real_2png" width = "400" height = "225"/>
   <img src="results/real_3.png" width = "400" height = "225"/>
   <img src="results/sim_1.png" width = "400" height = "225"/>
 </p>
@@ -19,11 +19,8 @@ Complete videos:
 ## Table of Contents
 
 * [Prerequest Installation](#Prerequest)
-* [Algorithms and Papers](#2-Algorithms-and-Papers)
-* [Setup and Config](#3-Setup-and-Config)
-* [Run Simulations](#4-run-simulations)
-* [Use in Your Application](#5-use-in-your-application)
-* [News](#6-news)
+* [Building with ROS](#2-Building-with-ROS)
+* [Running the Trajectory Tracker](#3-Running-the-Trajectory-Tracker)
 
 
 ## 1. Prerequisites Installation
@@ -54,16 +51,17 @@ Once you installed all the prerequisites, clone this repository to the catkin wo
   catkin build
 ```
 
-##### 3. To start Gazebo with necessary components 
-   ``roslaunch drone_sim task_3.launch``
-   
+## 3. Running the trajectory tracker 
 
-##### 4. For arming and chaging the controlling mode 
+##### To start Gazebo with necessary components 
+   ``roslaunch drone_sim task_3.launch``
+  
+##### For arming and chaging the controlling mode 
 ``roslaunch state_machine take_off.launch``
 
-##### 5. This will launch trajectory tracker and Rviz 
+##### This will launch trajectory tracker and Rviz 
 ``roslaunch state_machine px4_fsm_trajectory_tracker.launch``
 
-##### 6. Finally, to send controlling command to quadrotor
+##### Finally, to send controlling command to quadrotor
 ``roslaunch state_machine px4_reg.launch``
 
