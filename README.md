@@ -12,18 +12,18 @@ __Authors__: Geesara Kulathunga, Dmitry Devitt, Roman Fedorenko and Alexandr Kli
 </p>
 
 Complete videos: 
-[video1](https://www.youtube.com/watch?v=qYtWrFvxiOI),
-[video2](https://www.youtube.com/watch?v=myRPkKTRlJU), 
-[video3](https://www.youtube.com/watch?v=Umts9k9f-Lk). 
+[Field experiment 1](https://www.youtube.com/watch?v=qYtWrFvxiOI),
+[Field experiment 2](https://www.youtube.com/watch?v=myRPkKTRlJU), 
+[Simulator test](https://www.youtube.com/watch?v=Umts9k9f-Lk), [Checking tracking accuracy in a real flight test](https://www.youtube.com/watch?v=P2MGzhDM1x0). 
 
 ## Table of Contents
 
-* [Prerequest Installation](#Prerequest)
+* [Prerequisites](#Prerequest)
 * [Building with ROS](#2-Building-with-ROS)
 * [Running the Trajectory Tracker](#3-Running-the-Trajectory-Tracker)
 
 
-## 1. Prerequisites Installation
+## 1. Prerequisites 
 
 The project is developed and tested on Ubuntu 18.04, ROS Melodic for DJI and PX4. Following external libaries are needed before running trajectory tracker 
 
