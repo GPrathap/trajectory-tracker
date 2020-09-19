@@ -76,10 +76,10 @@ Once you installed all the prerequisites, clone this repository to the catkin wo
 Some of the example trajectories:
 
 <p align="center">
-  <img src="results/real_1.png" width = "400" height = "225"/>
-  <img src="results/real_2png" width = "400" height = "225"/>
-  <img src="results/real_3.png" width = "400" height = "225"/>
-  <img src="results/sim_1.png" width = "400" height = "225"/>
+  <img src="results/test_1.png" width = "400" height = "225"/>
+  <img src="results/test_2png" width = "400" height = "225"/>
+  <img src="results/test_3.png" width = "400" height = "225"/>
+  <img src="results/test_1.png" width = "400" height = "225"/>
 </p>
 
 
