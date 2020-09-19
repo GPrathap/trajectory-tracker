@@ -14,7 +14,7 @@ __Authors__: Geesara Kulathunga, Dmitry Devitt, Roman Fedorenko and Alexandr Kli
 Complete videos: 
 [Field experiment 1](https://www.youtube.com/watch?v=qYtWrFvxiOI),
 [Field experiment 2](https://www.youtube.com/watch?v=myRPkKTRlJU), 
-[Simulator test](https://www.youtube.com/watch?v=Umts9k9f-Lk), [Checking tracking accuracy in a real flight test](https://www.youtube.com/watch?v=P2MGzhDM1x0). 
+[Simulator test](https://www.youtube.com/watch?v=Umts9k9f-Lk), [Checking tracking accuracy in a real flight test](https://youtu.be/1yRYbTryKnQ). 
 
 ## Table of Contents
 
