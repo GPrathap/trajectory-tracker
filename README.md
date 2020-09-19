@@ -77,9 +77,9 @@ Some of the example trajectories:
 
 <p align="center">
   <img src="results/test_1.png" width = "400" height = "225"/>
-  <img src="results/test_2png" width = "400" height = "225"/>
+  <img src="results/test_2.png" width = "400" height = "225"/>
   <img src="results/test_3.png" width = "400" height = "225"/>
-  <img src="results/test_1.png" width = "400" height = "225"/>
+  <img src="results/test_4.png" width = "400" height = "225"/>
 </p>
 
 
