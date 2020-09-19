@@ -5,10 +5,10 @@ We present an optimization-based reference trajectory tracking approach for quad
 __Authors__: Geesara Kulathunga, Dmitry Devitt, Roman Fedorenko and Alexandr Klimchik
 
 <p align="center">
-  <img src="result/test1.gif" width = "400" height = "225"/>
-  <img src="result/test2.gif" width = "400" height = "225"/>
-  <img src="result/test3.gif" width = "400" height = "225"/>
-  <img src="result/test4.gif" width = "400" height = "225"/>
+  <img src="results/real_1.png" width = "400" height = "225"/>
+  <img src="results/real_2.png" width = "400" height = "225"/>
+  <img src="results/real_3.png" width = "400" height = "225"/>
+  <img src="results/sim_1.png" width = "400" height = "225"/>
 </p>
 
 Complete videos: 
