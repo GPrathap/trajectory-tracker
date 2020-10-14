@@ -2,8 +2,6 @@
 
 # Trajectory-Tracker 
 
-We present an optimization-based reference trajectory tracking approach for quadrotor robots. The proposed method uses the planning followed by the controlling paradigm. The basic concept of the proposed planner is an analogy to Linear Quadratic Gaussian (LQG) while incorporating Nonlinear Model Predictive Control (NMPC) for predicting optimal control policy in each iteration. Multiple-shooting is suggested over direct-collocation for imposing constraints when modelling the NMPC. Incremental EDT (Euclidean Distance Transformation) map is constructed and whose closest free distances relative to each position of the predicted trajectory are added as obstacle constraints. In this work, the B-spline based reference trajectory is generated ensuring dynamic feasibility. At each step, the objective is to minimize the error between the current pose of the quadrotor and reference trajectory pose, which corresponds with the current time. Finally, we have evaluated the proposed method with two other approaches and created a new dataset which can be used for evaluating any trajectory tracking algorithm. 
-
 __Authors__: Geesara Kulathunga, Dmitry Devitt, Roman Fedorenko and Alexandr Klimchik
 
 <p align="center">
