@@ -91,3 +91,10 @@ Some of the example trajectories:
 </p>
 
 
+Please cite at least one of our papers if you use this project in your research
+
+- [__Optimization-Based Trajectory Tracking Approach for Multi-Rotor Aerial Vehicles in Unknown Environments__](https://arxiv.org/pdf/2202.06056.pdf), Kulathunga, Geesara, et al., IEEE Robotics and Automation Letters (**RA-L**), 2022.
+- [__Trajectory tracking for quadrotors: An optimization‐based planning followed by controlling approach.__](https://www.researchsquare.com/article/rs-963714/v2), Kulathunga, Geesara, et al., Journal of Field Robotics 39.7, 2022. 
+
+
+
