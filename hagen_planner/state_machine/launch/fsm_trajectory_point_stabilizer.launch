@@ -1,0 +1,91 @@
+
+<launch>
+  <arg name="max_vel" value="0.6"/>
+  <arg name="min_vel" value="-0.6"/>
+  <arg name="max_avoidance_distance" value="1.5"/>
+  <arg name="min_avoidance_distance" value="1.0"/>
+  <arg name="map_resolution" value="0.2"/>
+  <arg name="maximum_acceptable_error" value="0.005"/>
+  <arg name="max_vel_bspline" value="0.4"/>
+
+  <!-- <node pkg="tf" name="world_map_tf" type="static_transform_publisher" args="0 0 0 0 0 0 map map 100" /> -->
+
+  <!-- launch-prefix="valgrind tool=callgrind callgrind-out-file=/root/logs/test1.log" -->
+    <!-- <include file="$(find dji_sdk)/launch/sdk.launch"></include> -->
+
+    <!-- <include file="$(find drone_bringup)/launch/fixed_joints.launch"/> -->
+    <!--include file="$(find drone_bringup)/launch/rs_d400_and_t265.launch"/-->
+
+  <node pkg="octomap_server" type="octomap_server_node" name="octomap_server">
+                <param name="resolution" value="$(arg map_resolution)" />
+                <param name="frame_id" type="string" value="map" />
+                <!-- <param name="sensor_model/hit" value="0.6" />
+                <param name="sensor_model/miss" value="0.4" />
+                <param name="sensor_model/min_range" value="0.3" /> -->
+                <param name="sensor_model/max_range" value="8.0" />
+                <!-- <param name="occupancy_min_z" value="0.0" />
+                <param name="occupancy_max_z" value="8.0" />
+                <param name="pointcloud_min_z" value="0.0" />
+                <param name="pointcloud_max_z" value="8.0" /> -->
+                <!-- <remap from="cloud_in" to="/d400/depth/color/points" /> -->
+                <remap from="cloud_in" to="/r200/depth/points" />
+  </node>
+
+  <!-- main node -->
+  <node pkg="state_machine" name="fsm_trajectory_point_stabilizer" type="fsm_trajectory_point_stabilizer" output="screen" respawn="true">
+  <!-- remap -->
+    <remap from="/laser_cloud_surround" to="/octomap_point_cloud_centers"/>
+    <remap from="/odom_world" to="/mavros/local_position/odom"/>
+    <remap from="/odom_ref" to="/ref_car"/>
+    <param name="mpc_opt/simulator_min_time" value="0.2" type="double"/>
+
+  <!-- sdf map updating -->
+    <param name="sdf_map/origin_x" value="-20.0" type="double"/>
+    <param name="sdf_map/origin_y" value="-20.0" type="double"/>
+    <param name="sdf_map/origin_z" value="0.2" type="double"/>
+    <param name="sdf_map/map_size_x" value="40.0" type="double"/>
+    <param name="sdf_map/map_size_y" value="40.0" type="double"/>
+    <param name="sdf_map/map_size_z" value="20" type="double"/>
+    <param name="sdf_map/resolution_sdf" value="$(arg map_resolution)" type="double"/>
+    <param name="sdf_map/ceil_height" value="2.5" type="double"/>
+    <param name="sdf_map/update_rate" value="2.0" type="double"/>
+    <param name="sdf_map/update_range" value="7.0" type="double"/>
+    <param name="sdf_map/inflate" value="0.0" type="double"/>
+    <param name="sdf_map/radius_ignore" value="0.2" type="double"/>
+    
+    <!-- planning fsm -->
+    <param name="fsm/sampling_rate" value="30" type="int"/>
+    <param name="fsm/avoidance_distance" value="$(arg min_avoidance_distance)" type="double"/>
+    <param name="fsm/avoidance_distance_max" value="$(arg max_avoidance_distance)" type="double"/>
+    <param name="fsm/intermediate_goal_max_dis" value="4.0" type="double"/>
+    <param name="fsm/intermediate_goal_min_dis" value="2.0" type="double"/>
+    <param name="fsm/cone_inner_radius" value="2.0" type="double"/>
+    <param name="fsm/cone_outer_radius" value="1.0" type="double"/>
+
+
+    <!-- trajectory optimization -->
+    <param name="mpc_opt/delta_t" value="0.05" type="double"/>
+    <param name="mpc_opt/prediction_horizon" value="40" type="int"/>
+    <param name="mpc_opt/v_max" value="$(arg max_vel)" type="double"/>
+    <param name="mpc_opt/v_min" value="$(arg min_vel)" type="double"/>
+    <param name="mpc_opt/omega_max" value="3.14159265359" type="double"/>
+    <param name="mpc_opt/omega_min" value="-3.14159265359" type="double"/>
+    <param name="mpc_opt/robot_diam" value="0.3" type="double"/>
+    
+    <param name="mpc_opt/avoidance_distance" value="$(arg max_avoidance_distance)" type="double"/>
+    <param name="mpc_opt/maximum_acceptable_error" value="$(arg maximum_acceptable_error)" type="double"/>
+    <param name="mpc_opt/simulated_duration" value="150" type="int"/>
+
+    <param name="mpc_opt/fluctuation_length" value="5" type="int"/>
+    <param name="mpc_opt/max_fluctuatio_allowed" value="2" type="double"/>
+
+    <param name="mpc_opt/obs_min_allowed_length" value="0.2" type="double"/>
+    <param name="mpc_opt/obs_max_allowed_length" value="10" type="double"/>
+
+    <param name="mpc_opt/collocation_degree" value="2" type="int"/>
+    <param name="mpc_opt/use_collocation" value="false" type="bool"/>
+
+    <rosparam command="load" file="$(find state_machine)/params/params_point_stabilizer.yaml" />
+  </node>
+
+</launch>

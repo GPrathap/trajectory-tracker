@@ -1,0 +1,229 @@
+body {
+    font-family : sans-serif;
+    margin : 0px;
+    padding : 0px;
+}
+
+a {
+    text-decoration : none;
+    font-weight : bold;
+}
+
+div#header {
+    background-color : rgb(128,170,193);
+    text-align : left;
+}
+
+
+#content-table {
+    width : 100%;
+    border-spacing : 0px;
+    border-collapse : collapse;
+}
+#content-table tr td {
+    vertical-align : top;
+    border-collapse : collapse;
+}
+
+#sidebar-cell {
+    width : 200px;
+    border-right : 1px solid gray;
+    padding : 0px;
+}
+
+img.logo { width : 190px; margin : 5px;}
+div.sidebar {
+    width : 200px;
+}
+
+div.btn-logout {
+    display       : inline-block;
+    font-weight   : bold;
+    cursor        : pointer;
+}
+
+
+div.red             { background : #800000; color : white; }
+div.disabled-red    { background : #806060; color : gray;  }
+div.blue            { background : #005582; color : white; }
+div.disabled-blue   { background : #606080; color : gray;  }
+
+div.button-bar      { padding : 2px; }solid thin #005582;
+div.button-bar div  { margin : 0px 2px 0px 2px; }
+
+
+.user-op-div    {
+    border  : solid thin #80a0ff;
+    border-radius : 20px;
+    margin-top    : 20px;
+    margin-bottom : 20px;
+    padding : 20px;
+}
+
+.user-op-div-inline {
+    border  : solid thin #80a0ff;
+    border-radius : 20px;
+    margin  : 20px;
+    padding : 20px;
+    display : inline-block;
+}
+
+div.user-op-spacer { height : 1.3em; }
+
+div.user-op-h2     { font-weight : bolder; font-size : 1.3em; padding-bottom : .5em; }
+
+div.error          { background : red; padding : 5px; color : white; }
+
+div.header {
+    border           :  1px solid #005582;
+    background-color :  #005582;
+    color   : white;
+    margin  : 0px;
+    padding : 2px;
+}
+
+span.expired {
+    color : red;
+}
+
+
+table.items-table {
+    width : 100%;
+    border-spacing : 0px;
+    border-collapse : collapse;
+    border-top : solid thin #005582;
+    border-bottom : solid thin #005582;
+}
+table.items-table thead { background-color : #005582; color : white;  }
+table.items-table tfoot { background-color : #005582; color : white;  }
+
+table.items-table thead th { padding-left : 5px; padding-right : 5px; }
+
+table.items-table tbody tr td {
+    text-align : center;
+}
+
+
+#error-msg {
+    font-weight : bold;
+    color       : red;
+    text-align  : center;
+}
+
+#status-msg {
+    text-align  : center;
+}
+
+.link-button {
+    border        : solid thin black;
+    border-radius : 5px;
+    padding       : 4px;
+    text-align    : center;
+    cursor        : pointer;
+    display       : inline-block;
+    margin        : 0px 2px 0px 2px;
+
+    background-color : gray;
+    color            : white;
+    text-decoration  : none;
+}
+
+
+
+.toggle-help-button {
+    border-radius : 2px;
+    padding       : 2px;
+    text-align    : center;
+    cursor        : pointer;
+    display       : inline-block;
+    margin        : 0px21px 0px 2px;
+    background-color : #f0f0f0;
+    font-size : small;
+}
+.hidden { display : none; }
+
+.help-box {
+    background-color : #f0f0f0;
+    padding : 5px;
+}
+
+
+
+
+
+.default-alternative {
+    font : bold;
+}
+.active-alternative {
+    padding : 5px;
+    border-radius : 5px;
+}
+.active-alternative:hover {
+    background : rgb(200,200,200);
+}
+
+
+.table-wrapper table thead tr th.narrow-column {
+    width : 50px;
+}
+
+.table-wrapper table thead tr th.minimal-column {
+    width : 1px;
+}
+
+
+
+/* SPECIFIC TABLE STYLINGS */
+#users-table thead tr th { text-align : left; }
+#users-table tfoot tr th { text-align : left; }
+#users-table thead tr th:nth-child(n+5) { text-align : right; }
+#users-table tfoot tr th:nth-child(n+5) { text-align : right; }
+
+#users-table tbody tr td:nth-child(n+5) { text-align : center; }
+
+
+
+
+
+
+
+
+#overlay {
+    position         : absolute;
+    width            : 100%;
+    height           : 100%;
+    left             : 0px;
+    top              : 0px;
+    background-color : rgba(255,255,255,0.7);
+    overflow-y       : scrolled;
+}
+
+#overlay .overlay-content {
+    border           : solid thin black;
+    border-radius    : 10px;
+    padding          : 10px;
+    margin-top       : 10px;
+    margin-bottom    : 10px;
+    background-color : rgb(240,240,255);
+    overflow-x       : scrolled;
+    position         : sticky;
+    top              : 0px;
+}
+
+
+/* Any screen high resolution screen (expected to be tablet or phone) */
+@media only screen (min-resolution: 101dpi) { #overlay .overlay-content { width = 100%; } }
+/* small screen, low resolution */
+@media screen and (max-resolution: 100dpi) and (max-width: 1000px) { #overlay .overlay-content { font-size : small; } }
+@media screen and (max-resolution: 100dpi) and (min-width: 1280px) { #overlay .overlay-content { margin-left  : 10%; margin-right : 10%; } }
+
+}
+
+div.boxed {
+    border : solid thin black;
+}
+
+.edit-area {
+    width  : 100%;
+    resize : vertical;
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="respawn" default="false" />
+    <arg name="debug" default="true" />
+    <arg name="node_name" default="drone_path_traj_contol_take_off" />
+    <!-- <arg launch-prefix="valgrind tool=callgrind callgrind-out-file=/home/project/test1.log" /> -->
+    <!-- <include file="$(find dji_sdk)/launch/sdk.launch"></include> -->
+    <!-- Include Basler acA1300-200uc camera nodes -->
+    <!-- <include file="$(find trajectory_estimator)/launch/pylon_camera_node_aca1300_200.launch"></include> -->
+    <!-- Include VLP-16 lidar (in stock)-->
+    <!-- <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch"></include> -->
+    <node name="$(arg node_name)" pkg="drone_traj_contol" type="drone_path_traj_contol_take_off" output="screen"
+          respawn="$(arg respawn)" >
+    </node>
+</launch>

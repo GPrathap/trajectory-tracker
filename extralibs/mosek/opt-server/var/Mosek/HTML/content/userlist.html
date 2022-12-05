@@ -1,0 +1,72 @@
+<header>
+  <h1>Users</h1>
+</header>
+
+<section id="content" class="wrapper">
+  <section class="user-op-div">
+    <h2>Add user</h2>
+    <div>
+      <table>
+        <tr><td>Login:</td>          <td><input id="new-user-login" type="text"></td></tr>
+        <tr><td>Name:</td>           <td><input id="new-user-name"  type="text"></td></tr>
+        <tr><td>Email:</td>          <td><input id="new-user-email" type="text"></td></tr>
+        <tr><td>Password:</td>       <td><input id="new-user-pwd1"  type="password"></td></tr>
+        <tr><td>Repeat Password:</td><td><input id="new-user-pwd2"  type="password"></td></tr>
+        <tr><td>Permissions:</td>    <td><input id="new-user-perm-login"         type="checkbox"><label for="new-user-perm-login"         >Login        </label></td></tr>
+        <tr><td>            </td>    <td><input id="new-user-perm-submit"        type="checkbox"><label for="new-user-perm-submit"        >Submit       </label></td></tr>
+        <tr><td>            </td>    <td><input id="new-user-perm-use-api"       type="checkbox"><label for="new-user-perm-use-api"       >Use API      </label></td></tr>
+        <tr><td>            </td>    <td><input id="new-user-perm-use-tokens"    type="checkbox"><label for="new-user-perm-use-tokens"    >Use tokens   </label></td></tr>
+        <tr><td>            </td>    <td><input id="new-user-perm-create-tokens" type="checkbox"><label for="new-user-perm-create-tokens" >Create tokens</label></td></tr>
+        <tr><td>            </td>    <td><input id="new-user-perm-admin"         type="checkbox"><label for="new-user-perm-admin"         >Administrator</label></td></tr>
+      </table>
+      <input id="btn-create-user" type="button" value="Create">
+      <span id="error-msg" style="color : red; font-weight : bold;"></span>
+    </div>
+  </section>
+  <section>
+    <div class="table-wrapper">
+      <table id="users-table">
+        <thead>
+          <tr>
+            <th data-item="userid">User ID</th>
+            <th data-item="name">Name</th>
+            <th data-item="email">Email</th>
+            <th data-item="password" width="3em">Password</th>
+
+            <th data-item="perm-login"        class="narrow-column">Login</th>
+            <th data-item="perm-submit"       class="narrow-column">Submit</th>
+            <th data-item="perm-use-token"    class="narrow-column">Use/Acc</th>
+            <th data-item="perm-create-token" class="narrow-column">Crt/Acc</th>
+            <th data-item="perm-use-api"      class="narrow-column">API</th>
+            <th data-item="perm-admin"        class="narrow-column">Admin</th>
+            <th data-item="ops"               class="minimal-column"></th>
+          </tr>
+        </thead>
+        <tbody id="users-table-body">
+        </tbody>
+        <tfoot>
+          <th>User ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Password</th>
+
+          <th>Login</th>
+          <th>Submit</th>
+          <th>Use/Acc</th>
+          <th>Crt/Acc</th>
+          <th>API</th>
+          <th>Admin</th>
+          <th></th>
+        </tfoot>
+      </table>
+    </div>
+  </section>
+</section>
+<script>
+  window.initialized_local = new Promise(async (resolve,reject) => {
+    let user  = await  window.initialized;
+    let users = await import('/static/script/users.mjs');
+    await users.initialize();
+    resolve();
+  });
+</script>

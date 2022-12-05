@@ -1,0 +1,17 @@
+<launch>
+  <arg name="max_vel" value="0.4"/>
+  <arg name="min_vel" value="-0.4"/>
+  <arg name="max_avoidance_distance" value="1.0"/>
+  <arg name="min_avoidance_distance" value="1.0"/>
+  <arg name="map_resolution" value="0.2"/>
+  <arg name="maximum_acceptable_error" value="0.05"/>
+  <arg name="max_vel_bspline" value="0.3"/>
+  <arg name="max_acce_bspline" value="0.1"/>
+
+   <!-- <include file="$(find state_machine)/launch/record_bags.launch" /> -->
+  <include file="$(find drone_sim)/launch/sim.launch"/>
+  <inlcude file="$(find state_machine)/launch/rviz_p4.launch"/>
+  <!-- <include file="$(find state_machine)/launch/take_off.launch"/> -->
+  <include file="$(find state_machine)/launch/px4_reg.launch"/>
+
+</launch>

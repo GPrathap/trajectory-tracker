@@ -1,0 +1,41 @@
+<header>
+  <h1>Update preferences</h1>
+</header>
+<section id="content" class="wrapper">
+  <section class="user-op-div">
+    <form id="user-form">
+      <table>
+        <tbody>
+          <tr><td colspan="1">User ID:             </td> <td><input type="text" id="field-user-id" disabled>   </td></tr>
+          <tr><td colspan="1">Name:                </td> <td><input type="text" id="field-user-name">      </td></tr>
+          <tr><td colspan="1">Email:               </td> <td><input type="text" id="field-user-email"></td></tr>
+          <tr><td colspan="1">Current Password:    </td> <td><input type="password" id="field-user-password" autocomplete="off" placeholder="Current password">        </td></tr>
+          <tr><td colspan="1">New Password:        </td> <td><input type="password" id="field-user-new-pwd1" autocomplete="off" placeholder="New password">                </td></tr>
+          <tr><td colspan="1">New Password (again):</td> <td><input id="field-user-new-pwd2" type="password" autocomplete="off" placeholder="Repeat new password"> </td></tr>
+          <tr><td colspan="2">Permissions          </td></tr>
+          <tr><td></td><td><input id="field-user-login"         type="checkbox" disabled><label for="field-user-login">Login</label></td></tr>
+          <tr><td></td><td><input id="field-user-submit"        type="checkbox" disabled><label for="field-user-submit">Submit</label></td></tr>
+          <tr><td></td><td><input id="field-user-api"           type="checkbox" disabled><label for="field-user-api">Use API</label></td></tr>
+          <tr><td></td><td><input id="field-user-create-tokens" type="checkbox" disabled><label for="field-user-create-tokens">Create Tokens</label></td></tr>
+	  <tr><td></td><td><input id="field-user-admin"         type="checkbox" disabled><label for="field-user-admin">Admin</label></td></tr>
+          <tr>
+            <td colspan="3">
+              <input id="btn-submit" type="button" value="Update">
+              <input id="btn-reset"  type="button" value="Reset">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+    <div id="error-msg"> </div>
+    <div id="status-msg"> </div>
+  </section>
+</section>
+<script>
+  window.initialized_local = new Promise(async (resolve,reject) => {
+    let user = await window.initialized;
+    let profile = await import('/static/script/profile.mjs');
+    await profile.initialize(user);
+    resolve();
+  });
+</script>

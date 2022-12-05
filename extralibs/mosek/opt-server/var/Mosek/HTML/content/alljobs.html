@@ -1,0 +1,59 @@
+<header>
+  <h1>All Jobs</h1>
+</header>
+<section id="content" class="wrapper">
+  <section class="user-op-div">
+    <h2>Selection</h2>
+
+    <div id="search-box">
+      <input type="text" id="inp-search-text" autofocus>
+    </div>
+    <div id="search-actions">
+      <input type="button" value="Clear"              id="btn-clear-filter">
+      <input type="button" value="Stop selected"      id="btn-stop-selected" style="float:right;">
+      <input type="button" value="Delete selected"    id="btn-delete-selected" style="float:right;">
+    </div>
+  </section>
+
+  <section>
+    <h2>Jobs</h2>
+    <div class="table-wrapper">
+      <table id="jobs-table" class="active-rows global">
+        <thead>
+          <tr>
+            <th width="1em"><input type="checkbox" id="tick-select-all"><label></label></th>
+            <th data-item="id">Job ID</th>
+            <th data-item="desc">Description</th>
+            <th data-item="owner">Owner</th>
+            <th data-item="status">Status</th>
+            <th data-item="time">Submitted</th>
+            <th data-item="duration">T</th>
+            <th data-item="size">Sz</th>
+            <th data-item="ops" width="1px"></th></tr>
+        </thead>
+        <tbody id="jobs-table-body">
+
+        </tbody>
+        <tfoot>
+          <tr>
+            <th width="1em"> </th>
+            <th width="20em">Job ID</th>
+            <th>Description</th>
+            <th width="1px">Owner</th>
+            <th width="1px">Status</th>
+            <th width="1px">Submitted</th>
+            <th width="1px">T</th>
+            <th width="1px">Sz</th>
+            <th width="1px"></th>
+        </tfoot>
+      </table>
+    </div>
+  </section>
+</section>
+
+<script>
+  console.log(window.initialized);
+  window.initialized.then((user) => {
+    import('/static/script/jobs.mjs').then((jobs) => { jobs.initialize() } );
+  });
+</script>

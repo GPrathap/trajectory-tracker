@@ -1,0 +1,122 @@
+<launch>
+  <arg name="max_vel" value="1.5"/>
+  <arg name="min_vel" value="-1.5"/>
+  <arg name="max_avoidance_distance" value="1.3"/>
+  <arg name="min_avoidance_distance" value="1.3"/>
+  <arg name="map_resolution" value="0.2"/>
+  <arg name="maximum_acceptable_error" value="0.05"/>
+  <arg name="max_vel_bspline" value="1.0"/>
+  <arg name="max_acce_bspline" value="0.2"/>
+
+  <!-- <node pkg="tf" name="world_map_tf" type="static_transform_publisher" args="0 0 0 0 0 0 map map 100" /> -->
+  <!-- <node pkg="tf" name="baselink_map_tf" type="static_transform_publisher" args="0 0 0 0 0 0  map base_link 100" /> -->
+
+  <node pkg="octomap_server" type="octomap_server_node" name="octomap_server">
+                <param name="resolution" value="$(arg map_resolution)" />
+                <param name="frame_id" type="string" value="map" />
+                <param name="sensor_model/hit" value="0.65" />
+                <param name="sensor_model/miss" value="0.1" />
+                <param name="sensor_model/max_range" value="20.0" />
+                <param name="occupancy_min_z" value="-2.0" />
+                <param name="occupancy_max_z" value="15.0" />
+                <param name="pointcloud_min_z" value="-2.0" />
+                <param name="pointcloud_max_z" value="15.0" />
+
+               <!-- <remap from="cloud_in" to="/d400/depth/color/points" />  -->
+               <remap from="cloud_in" to="/r200/depth/points" /> 
+                <!-- <remap from="cloud_in" to="/velodyne_points_trasfomed" /> -->
+
+  </node>
+
+  <node pkg="state_machine" name="mtnode" type="run_odom.py" output="screen"> 
+
+  </node>
+  
+  <!-- launch-prefix="valgrind tool=callgrind callgrind-out-file=/home/geesara/bags/test1" -->
+  <!-- main node -->
+  <node pkg="state_machine" name="fsm_trajectory_tracker" type="fsm_trajectory_tracker" output="screen" respawn="false" >
+  
+    <remap from="/laser_cloud_surround" to="/octomap_point_cloud_centers"/>
+    <!-- <remap from="/laser_cloud_surround" to="/velodyne_points_trasfomed"/> -->
+    <remap from="/odom_world" to="/mavros/local_position/odom"/>
+
+    <param name="sdf_map/origin_x" value="-30.0" type="double"/>
+    <param name="sdf_map/map_size_x" value="60.0" type="double"/>
+    <param name="sdf_map/origin_y" value="-30.0" type="double"/>
+    <param name="sdf_map/map_size_y" value="60.0" type="double"/>
+    <param name="sdf_map/origin_z" value="0.5" type="double"/>
+    <param name="sdf_map/map_size_z" value="15" type="double"/>
+
+    <param name="sdf_map/origin_x_whole" value="-30.0" type="double"/>
+    <param name="sdf_map/map_size_x_whole" value="60.0" type="double"/>
+    <param name="sdf_map/origin_y_whole" value="-30.0" type="double"/>
+    <param name="sdf_map/map_size_y_whole" value="60.0" type="double"/>
+    <param name="sdf_map/origin_z_whole" value="0.5" type="double"/>
+    <param name="sdf_map/map_size_z_whole" value="12" type="double"/>
+
+    <param name="sdf_map/resolution_sdf" value="$(arg map_resolution)" type="double"/>
+    <param name="sdf_map/ceil_height" value="2.5" type="double"/>
+    <param name="sdf_map/update_rate" value="2.0" type="double"/>
+    <param name="sdf_map/update_range" value="5.0" type="double"/>
+    <param name="sdf_map/inflate" value="0.0" type="double"/>
+    <param name="sdf_map/radius_ignore" value="0.7" type="double"/>
+    <param name="sdf_map/max_avoidance_distance" value="$(arg max_avoidance_distance)" type="double"/>
+    <param name="sdf_map/min_avoidance_distance" value="$(arg min_avoidance_distance)" type="double"/>
+    
+    <param name="fsm/sampling_rate" value="30" type="int"/>
+    <param name="fsm/avoidance_distance" value="$(arg min_avoidance_distance)" type="double"/>
+    <param name="fsm/waypoints_file" value="$(find state_machine)/data/new_data_set/waypoints.csv" type="string"/>
+    <param name="fsm/bspline_file" value="$(find state_machine)/data/new_data_set/bspline_trajectory.csv" type="string"/>
+    <param name="fsm/safeset_file" value="$(find state_machine)/data/new_data_set/safeset.csv" type="string"/>
+   
+    <param name="bspline_utils/time_sample" value="0.1" type="double"/>
+    <param name="bspline_utils/max_vel" value="$(arg max_vel)" type="double"/>
+    <param name="bspline_utils/smoothing_factor" value="500" type="int"/>
+    <param name="bspline_utils/smoothing_order" value="3" type="int"/>
+    <param name="bspline/limit_vel" value="$(arg max_vel_bspline)" type="double"/>
+    <param name="bspline/limit_acc" value="$(arg max_acce_bspline)" type="double"/>
+    <param name="bspline/limit_ratio" value="1.1" type="double"/>
+
+    <param name="optimization/lambda_smooth" value="1.0" type="double"/>
+    <param name="optimization/lambda_collision" value="0.5" type="double"/>
+    <param name="optimization/lambda_feasibility" value="0.1" type="double"/>
+    <param name="optimization/lambda_fitness" value="1.0" type="double"/>
+    <param name="optimization/dist0" value="$(arg max_avoidance_distance)" type="double"/>
+    <param name="optimization/max_vel" value="$(arg max_vel)" type="double"/>
+    <param name="optimization/max_acc" value="0.5" type="double"/>
+   
+   
+    <param name="mpc_opt/delta_t" value="0.1" type="double"/>
+    <param name="mpc_opt/delta_t_desired" value="0.1" type="double"/>
+    <param name="mpc_opt/delta_t_solver" value="0.05" type="double"/>
+    <param name="mpc_opt/prediction_horizon" value="30" type="int"/>
+    <param name="mpc_opt/v_max" value="$(arg max_vel)" type="double"/>
+    <param name="mpc_opt/v_min" value="$(arg min_vel)" type="double"/>
+    <param name="mpc_opt/omega_max" value="1.8159265359" type="double"/>
+    <param name="mpc_opt/omega_min" value="-1.8159265359" type="double"/>
+    <param name="mpc_opt/robot_diam" value="0.3" type="double"/>
+    <param name="mpc_opt/avoidance_distance" value="$(arg max_avoidance_distance)" type="double"/>
+    <param name="mpc_opt/maximum_acceptable_error" value="$(arg maximum_acceptable_error)" type="double"/>
+    <param name="mpc_opt/simulated_duration" value="5000" type="int"/>
+    <param name="mpc_opt/fluctuation_length" value="3.0" type="double"/>
+    <param name="mpc_opt/max_fluctuatio_allowed" value="20" type="int"/>
+    <param name="mpc_opt/obs_min_allowed_length" value="0.2" type="double"/>
+    <param name="mpc_opt/obs_max_allowed_length" value="5" type="double"/>
+    <param name="mpc_opt/reference_trj_horizon" value="50" type="double"/>
+    <param name="mpc_opt/residual_dynamics_model" value="$(find mpc_opt)/models/model_f.casadi" type="string"/>
+    
+    <param name="mpc_opt/collocation_degree" value="3" type="int"/>
+    <param name="mpc_opt/use_collocation" value="false" type="bool"/>
+
+    <param name="traj_common/root_dir" value="$(find state_machine)/data" type="string"/>
+
+    <rosparam command="load" file="$(find state_machine)/params/params_trajectory_tracker.yaml" />
+  </node>
+
+   <!-- <include file="$(find state_machine)/launch/record_bags.launch" /> -->
+   <!-- <include file="$(find drone_sim)/launch/sim.launch">
+   <inlcude file="$(find state_machine)/launch/rviz_p4.launch"/>
+   <include file="$(find state_machine)/launch/take_off.launch"/>
+   <include file="$(find state-machine)/launch/px4_reg.launch"/> -->
+
+</launch>

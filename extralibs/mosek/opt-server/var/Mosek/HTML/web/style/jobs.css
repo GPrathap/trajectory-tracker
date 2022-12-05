@@ -1,0 +1,10 @@
+#search-box {
+    text-align : center;
+}
+
+
+#search-box input {
+    width  : 100%;
+    margin : 10px 1px 10px -1px ;
+    border : solid 1px;
+}

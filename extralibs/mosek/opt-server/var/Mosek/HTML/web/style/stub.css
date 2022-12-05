@@ -1,0 +1,274 @@
+/* NAVIGATION BAR */
+
+#nav {
+    float   : right;
+    display : inline-block;
+}
+
+#nav ul {
+    list-style-type : none;
+}
+
+#nav ul li {
+    display : inline;
+    padding : 10px 20px 10px 20px;
+}
+
+#nav ul li ul li {
+    display : block;
+    margin : 0px;
+    padding : 0px;
+}
+
+#nav ul li ul li a {
+    margin : 10px 0px 10px 0px;
+    padding : 10px;
+    display : block;
+}
+
+
+#nav ul li.opener ul {
+    display : none; /* none/block*/
+}
+
+#nav ul li.opener ul li {
+    display     : list-item;
+    font-weight : bold;
+    whitespace  : nowrap;
+}
+
+#nav ul li.opener:hover ul {
+    display       : block; /* none/block*/
+    position      : fixed;
+    right         : 10px;
+    background    : white;
+    border        : solid thin black;
+    border-radius : 10px;
+    padding       : 20px;
+}
+
+#user-items li {
+    display     : list-item;
+    font-weight : bold;
+    whitespace  : nowrap;
+}
+
+#user-items li:hover {
+    background-color : #c0c0ff;
+}
+
+#user-id {
+    font-weight : bold;
+    font-size   : large;
+}
+
+
+
+#main {
+    margin-top : 20px;
+    text-align : left;
+}
+
+/* Any screen high resolution screen (expected to be tablet or phone) */
+#main only screen (min-resolution: 101dpi) {
+    width = 100%;
+}
+
+/* small screen, low resolution */
+@media screen and (max-resolution: 100dpi) and (max-width: 1000px) {
+    #main {
+        font-size : small;
+    }
+}
+
+@media screen and (max-resolution: 100dpi) and (min-width: 1280px) and (max-width: 1600px) {
+    #main {
+        padding-left  : 10%;
+        padding-right : 10%;
+    }
+}
+
+@media screen and (max-resolution: 100dpi) and (min-width: 1600px) {
+    #main {
+        padding-left : 20%;
+        padding-right : 20%;
+    }
+}
+
+
+/************************************************************
+ *
+ * TABLE STYLING
+ *
+ ************************************************************/
+
+.table-wrapper table {
+    width : 100%;
+}
+
+.table-wrapper table tbody tr td { white-space : nowrap; }
+.table-wrapper table {
+    width : 100%;
+    border-spacing : 0px;
+    border-collapse : collapse;
+    border-top : solid thin #005582;
+    border-bottom : solid thin #005582;
+}
+
+.table-wrapper table thead { background-color : #005582; color : white;  }
+.table-wrapper table tfoot { background-color : #005582; color : white;  }
+.table-wrapper table thead tr th { padding : 10px  }
+.table-wrapper table tfoot tr th { padding : 10px  }
+
+/* default alternating colors */
+.table-wrapper table tbody tr:nth-child(2n) { background-color : #e0e0ff; }
+.table-wrapper table tbody tr td { padding : 5px; }
+
+/*
+ * active rows table: Table with selectable rows
+ */
+
+/* hover row background */
+.table-wrapper table.active-rows tbody tr:hover                  { cursor : pointer; background-color : #c0c0ff; }
+/* selected rows alternating background */
+.table-wrapper table.active-rows tbody tr.selected               { color : white; background-color : black; }
+.table-wrapper table.active-rows tbody tr.selected:nth-child(2n) { color : white; background-color : rgb(50,50,50); }
+/* selected rows hover colors */
+.table-wrapper table.active-rows tbody tr.selected:hover         { color : white; background-color : rgb(100,100,100); }
+
+
+
+
+/************************************************************
+ *
+ * TABLE CELL EDIT
+ *
+ ************************************************************/
+
+.bubble {
+    position : fixed;
+    display  : inline-block;
+    overflow : visible;
+    z-index  : 9999;
+
+    border  : solid thin gray;
+    border-radius : 15px;
+    padding : 20px;
+    margin  : 5px;
+    background-color : white;
+    whitespace : nowrap;
+}
+
+
+/* token cell*/
+#jobs-table tbody tr td:nth-child(2) {
+    font-family : mono;
+    text-align  : left;
+}
+
+#jobs-table tbody tr.expired {
+    color : red;
+}
+
+
+#users-table tbody tr td:nth-child(n+2):hover {
+    cursor           : pointer;
+    background-color : #c0c0ff;
+}
+
+
+/************************************************************
+ *
+ * BUTTONS
+ *
+ ************************************************************/
+
+
+div.button {
+    border        : solid thin black;
+    border-radius : 5px;
+    padding       : 4px;
+    text-align    : center;
+    cursor        : pointer;
+    display       : inline-block;
+    margin        : 0px 2px 0px 2px;
+    background-color : rgb(220,220,220);
+    min-width     : 1em;
+    font-family   : serif;
+    color         : black;
+}
+
+div.button-kill { width : 1.2em; height : 1.2em; }
+div.button-stop { width : 1.2em; height : 1.2em; }
+div.button-play { width : 1.2em; height : 1.2em; }
+div.button-info { width : 1.2em; height : 1.2em; font-family : serif; font-weight : bold;}
+div.button-close { width : 1.2em; height : 1.2em; }
+
+div.button-kill::after { content : "\1F480"; }
+div.button-stop::after { content : "\23F9" ; }
+div.button-play::after { content : "\23F5" ; }
+div.button-info::after { content : "i"; }
+div.button-close::after { content : "\2716" ; }
+
+div.button:hover {
+    background-color : rgb(192,192,192);
+}
+
+
+
+
+ul.icons {
+    display     : block;
+    white-space : nowrap;
+    list-style-type : none;
+}
+
+ul.icons li {
+    display     : inline;
+    white-space : nowrap;
+    margin      : 0px 10px 0px 0px;
+}
+
+ul.icon-bar li:last-child {
+    margin-left : 0px;
+}
+
+a.icon span {
+    display : none;
+}
+
+a.icon {
+    color      : black;
+    decoration : none;
+    display : inline-block;
+
+    /*padding    : 5px;*/
+    height     : 32px;
+    width      : 32px;
+    min-height     : 32px;
+    min-width      : 32px;
+}
+
+a.icon:visited {
+    color : black;
+    decoration : none;
+}
+
+a.icon:hover {
+    color : white;
+    background-color : gray;
+    decoration : none;
+}
+
+/* a.fa-kill::after   { content : "\1F480"; } */
+/* a.fa-remove::after { content : "\1F480"; } */
+/* a.fa-stop::after   { content : "\23F9" ; } */
+/* a.fa-play::after   { content : "\23F5" ; } */
+/* a.fa-info::after   { content : "i"; } */
+a.da-close::after  { content : "\2716" ; }
+
+a.fa-kill   { background-image : url("/static/image/btn-delete.png"); }
+a.fa-remove { background-image : url("/static/image/btn-delete.png"); }
+a.fa-stop   { background-image : url("/static/image/btn-stop.png"); }
+a.fa-play   { background-image : url("/static/image/btn-run.png"); }
+a.fa-info   { background-image : url("/static/image/btn-info.png"); }

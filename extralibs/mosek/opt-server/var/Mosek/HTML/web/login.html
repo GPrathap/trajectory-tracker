@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" type="text/css" href="style/style.css"/>
+    <link rel="stylesheet" type="text/css" href="style/stub.css"/>
+    <style type="text/css" media="all">
+      #login-box {
+        font-family : sans;
+        font-weight : bold;
+        background-color : rgb(128,170,193);
+      }
+      .login-box th { color : blue; }
+      #error-cell { text-align : center; color : red; padding : 10px 0px 20px 0px; height : 2em; }
+    </style>
+    <script>
+      window.initialized = new Promise(async (resolve,reject) => {
+        window.onload = async () => {
+          let login = await import('/static/script/login.mjs');
+          await login.initialize();
+          resolve(true);
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div id="main-login">
+      <center>
+        <div id="login-box" class="user-op-div-inline">
+          <form>
+            <table>
+              <thead>
+                <tr><th colspan="2">MOSEK Optimization Server</th></tr>
+              </thead>
+              <tbody>
+                <tr><td colspan="2" id="error-cell"><span id="msg-error" style="display : none">Login failed</span></td></tr>
+                <tr><td>Username:</td><td><input id="inp-username" type="text" value=""> </td></tr>
+                <tr><td>Password:</td><td><input id="inp-password" type="password" autocomplete="off" value=""> </td></tr>
+                <tr><td colspan="2" align="center"><input type="button" value="Log in" id="btn-submit"></td></tr>
+              </tbody>
+            </table>
+          </form>
+        </div>
+      </center>
+    </div>
+  </body>
+</html>

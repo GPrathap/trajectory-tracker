@@ -1,0 +1,57 @@
+
+<section id="content" class="wrapper">
+  <section>
+    <h2>CPU load</h2>
+    <table>
+      <tbody>
+        <tr><th>Execution cores:</th><td><span id="data-num-cpus">?</span></td></tr>
+        <tr><th>Server executors:</th><td><span id="data-num-runners">?</span></td></tr>
+        <tr><th>Sample interval:</th><td><span id="data-sample-interval">?</span> second(s)</td></tr>
+      </tbody>
+    </table>
+    <div id="stat-cpu" class="boxed canvas-container">
+      <canvas id="stat-cpu-graph" class="stat-canvas"></canvas>
+    </div>
+  </section>
+
+  <section>
+    <h2>Average time in queue</h2>
+    <div id="stat-avg-queue-time" class="boxed canvas-container">
+      <canvas id="stat-avg-queue-time-graph" class="stat-canvas"></canvas>
+    </div>
+  </section>
+
+  <section>
+    <h2>Average run time</h2>
+    <div id="stat-avg-run-time" class="boxed canvas-container">
+      <canvas id="stat-avg-run-time-graph" class="stat-canvas"></canvas>
+    </div>
+  </section>
+
+  <section>
+    <h2>Jobs added</h2>
+    <div id="stat-jobs-added" class="boxed canvas-container">
+      <canvas id="stat-jobs-added-graph" class="stat-canvas"></canvas>
+    </div>
+  </section>
+
+  <section>
+    <h2>Jobs enqueued</h2>
+    <div id="stat-jobs-enqueued" class="boxed canvas-container">
+      <canvas id="stat-jobs-enqueued-graph" class="stat-canvas"></canvas>
+    </div>
+  </section>
+
+  <section>
+    <h2>Jobs completed</h2>
+    <div id="stat-jobs-completed" class="boxed canvas-container">
+      <canvas id="stat-jobs-completed-graph" class="stat-canvas"></canvas>
+    </div>
+  </section>
+</section>
+
+<script type="module">
+window.initialized.then((user) => {
+  import('/static/script/stats.mjs').then((stats) => { stats.initialize() } );
+});
+</script>

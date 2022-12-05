@@ -1,0 +1,16 @@
+<robot name="drone_fixed_joint">
+
+  
+  <link name="base_link_quad" />
+
+  <joint name="rotor_2_joint" type="continuous">
+    <origin rpy="0 0 0" xyz="-0.17 0 0.01"/>
+    <axis xyz="0 0 1"/>
+    <!-- TODO(ff): not currently set because it's not yet supported -->
+    <!-- <limit effort="2000" velocity="${max_rot_velocity}" /> -->
+    <parent link="base_link_quad"/>
+    <child link="rotor_2"/>
+  </joint>
+
+</robot>
+

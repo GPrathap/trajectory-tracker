@@ -1,0 +1,75 @@
+<header>
+  <h1>My Jobs</h1>
+</header>
+
+<section id="content" class="wrapper">
+  <section class="user-op-div">
+    <h2>Submit job</h2>
+    <div>
+      <input type="file"   value="Problem file"     id="inp-problem-file" multiple>
+      <input type="button" value="Submit to Server" id="btn-submit-tasks">
+    </div>
+  </section>
+
+  <section class="user-op-div">
+    <h2>Submit problem</h2>
+    <div>
+      <textarea id="inp-problem-inline" class="edit-area"># Paste in your opf, ptf or MPS file here</textarea>
+      <input type="button" value="Submit to server" id="btn-submit-inline">
+      <input type="button" value="Clear" id="btn-clear-inline">
+    </div>
+  </section>
+
+  <section class="user-op-div">
+    <h2>Selection</h2>
+    <div id="search-box">
+      <input type="text" id="inp-search-text" autofocus>
+    </div>
+    <div id="search-actions">
+      <input type="button" value="Clear"              id="btn-clear-filter">
+      <input type="button" value="Stop selected"      id="btn-stop-selected"   style="float:right;">
+      <input type="button" value="Delete selected"    id="btn-delete-selected" style="float:right;">
+    </div>
+  </section>
+
+  <section>
+    <h2>Jobs</h2>
+    <div class="table-wrapper">
+      <table id="jobs-table" class="active-rows">
+        <thead>
+          <tr>
+            <th width="1em"><input type="checkbox"><label></label></th>
+            <th data-item="id">Job ID</th>
+            <th data-item="desc">Description</th>
+            <th data-item="status">Status</th>
+            <th data-item="time">Submitted</th>
+            <th data-item="duration">T</th>
+            <th data-item="size">Sz</th>
+            <th data-item="ops" width="1px"></th></tr>
+        </thead>
+        <tbody id="jobs-table-body">
+
+        </tbody>
+        <tfoot>
+          <tr>
+            <th width="1em"> </th>
+            <th>Job ID</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Submitted</th>
+            <th>T</th>
+            <th>Sz</th>
+            <th width="1px"></th></tr>
+        </tfoot>
+      </table>
+    </div>
+  </section>
+</section>
+<script>
+  window.initialized_local = new Promise(async (resolve,reject) => {
+     let user = await window.initialized;
+     let jobs = await import('/static/script/jobs.mjs');
+     await jobs.initialize(user);
+     resolve();
+  });
+</script>

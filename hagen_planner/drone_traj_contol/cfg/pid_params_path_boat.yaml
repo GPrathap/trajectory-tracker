@@ -1,0 +1,9 @@
+lin_Kp: 5.19999981
+lin_Ki: 0.5
+lin_Kd: 9
+ang_Kp: 0.699999988
+ang_Ki: 0.5
+ang_Kd: 0
+stn_Kp: 1
+stn_Ki: 2
+stn_Kd: 2

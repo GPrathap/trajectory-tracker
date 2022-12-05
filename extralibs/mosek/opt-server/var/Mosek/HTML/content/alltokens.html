@@ -1,0 +1,56 @@
+<header>
+  <h1>All Access Tokens</h1>
+</header>
+<section id="content" class="wrapper">
+  <section class="user-op-div">
+    <h2>Create new Token</h2>
+    <form id="form-create-token">
+      <table>
+        <!-- <tr> <td>User</td>        <td> <input type="text" id="inp-userid">     </td> </tr> -->
+        <tr> <td>User</td>        <td> <select class="select-user-list" id="inp-userid"></select>     </td> </tr>
+        <tr> <td>Description</td> <td> <input type="text" id="inp-desc">       </td> </tr>
+        <tr> <td>Expiry date</td> <td> <input type="date" id="input-expiry">   </td> </tr>
+        <tr> <td></td>  <td><input type="checkbox" id="inp-perm-submit" checked><label for="inp-perm-sumit">Can submit</label> </td></tr>
+        <tr> <td></td>  <td><input type="checkbox" id="inp-perm-admin"><label for="inp-perm-admin">Administrate</label> </td></tr>
+        <tr> <td colspan=2> <input type="button" id="btn-create-token" value="Create access token"> </td> </tr>
+        <tr><td> <div class="user-op-spacer"></div> </td></tr>
+        <tr> <td>Generated Token:</td><td><input type="text" id="output-token" readonly size="64"/></td> </tr>
+      </table>
+    </form>
+  </section>
+
+  <section class="user-op-div">
+    <h2>Selection</h2>
+    <input type="submit" id="btn-delete-selected" value="Delete selected">
+  </section>
+
+  <section>
+    <div class="table-wrapper">
+      <table id="tokens-table" class="active-rows global">
+        <thead>
+          <tr><th><input type="checkbox"><label></label></th>
+	    <th data-item="desc">Description</th>
+            <th data-item="owner">Owner</th>
+	    <th data-item="expiry">Expiry</th>
+	    <th data-item="perm-submit">Submit</th>
+	    <th data-item="perm-admin">Admin</th>
+	    <th width="1px" data-item="ops"></th></tr>
+        </thead>
+        <tbody id="tokens-table-body">
+        </tbody>
+        <tfoot>
+          <tr><th></th><th>Description</th><th>Owner</th><th>Expiry</th><th>Submit</th><th>Admin</th><th width="1px"></th></tr>
+        </tfoot>
+      </table>
+    </div>
+  </section>
+</section>
+
+<script>
+  window.initialized_local = new Promise(async (resolve,reject) => {
+    await window.initialized;
+    let tokens = await import('/static/script/tokens.mjs');
+    await tokens.initialize();
+    resolve();
+  });
+</script>

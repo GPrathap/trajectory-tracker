@@ -1,0 +1,7 @@
+---
+setw -g mouse on
+roslaunch drone_sim sim.launch 
+---
+roslaunch state_machine take_off.launch 
+---
+roslaunch state_machine rviz_p4.launch

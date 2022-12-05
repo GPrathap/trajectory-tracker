@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+
+    <link rel="icon" type="image/png" href="/static/image/favicon.png">
+    <link rel="stylesheet" type="text/css" href="/static/style/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/style/stub.css"/>
+    <script>
+      window.loaded = new Promise((resolve,reject) => { window.onload = () => ( resolve() ); });
+      window.initialized = new Promise(async (resolve,reject) => {
+        await window.loaded;
+        let gui  = await import('/static/script/gui.mjs');
+        let user = await gui.initialize();
+        resolve(user);
+      });
+    </script>
+  </head>
+  <body>
+    <div id="header">
+      <a href="/web/index.html"><img class="logo" src="/static/image/webgraphmoseklogocolor.png"/></a>
+      <div id="nav">
+        <ul id="nav-items">
+          <li class="opener" style="user-select : none">
+            <a style="cursor : pointer;"><span id="user-id"> &lt;unknown&gt; </span> </a>
+            <ul id="user-items">
+              <li style="whitespace : nowrap;"><a href="myjobs.html">My Jobs</a></li>
+              <li style="whitespace : nowrap;"><a href="mytokens.html">My Tokens</a></li>
+              <li style="whitespace : nowrap;"><a href="profile.html">Profile</a></li>
+              <li style="whitespace : nowrap;"><a id="btn-logout" href="#">Log out</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="main">
+      <!-- CONTENT BEGIN -->
+      {{.}}
+      <!-- CONTENT END -->
+    </div>
+  </body>
+</html>

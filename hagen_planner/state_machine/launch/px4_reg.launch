@@ -1,0 +1,12 @@
+<launch>  
+<!-- tf -->
+    <!-- <node pkg="tf" name="world_map_tf" type="static_transform_publisher" args="0 0 0 0 0 0 map map 100" /> -->
+  <!-- px4 path-traj reg -->
+  <node pkg="drone_traj_contol" name="drone_path_traj_reg_node" type="drone_path_traj_reg_node" 
+                                                                                              respawn="true" output="screen">
+      <param name="yaml_path" value="$(find drone_traj_contol)/cfg/pid_params_path.yaml"/>
+      <param name="use_rotate" value="false"/>
+      <param name="speed_rotate" value="0.5"/>
+  </node>
+  <!-- marker -->
+</launch>

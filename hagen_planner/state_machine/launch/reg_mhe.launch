@@ -1,0 +1,23 @@
+<launch>  
+<!-- tf -->
+    <!-- <node pkg="tf" name="world_map_tf" type="static_transform_publisher" args="0 0 0 0 0 0 map map 100" /> -->
+  <!-- px4 path-traj reg -->
+  <node pkg="drone_path_traj_contol" name="drone_path_traj_mhe_node" type="drone_path_traj_mhe_node"
+                                                                                              respawn="true" output="screen">
+      <remap from="/odom_world" to="/mavros/local_position/odom"/>
+      <param name="mpc_opt/delta_t" value="0.1" type="double"/>
+      <param name="mpc_opt/prediction_horizon" value="20" type="int"/>
+      <param name="mpc_opt/estimation_horizon" value="10" type="int"/>
+      <param name="mpc_opt/v_max" value="0.4" type="double"/>
+      <param name="mpc_opt/v_min" value="-0.4" type="double"/>
+      <param name="mpc_opt/omega_max" value="0.785398" type="double"/>
+      <param name="mpc_opt/omega_min" value="-0.785398" type="double"/>
+      <param name="mpc_opt/robot_diam" value="0.3" type="double"/>
+      
+      <param name="mpc_opt/avoidance_distance" value="1.0" type="double"/>
+      <param name="mpc_opt/maximum_acceptable_error" value="0.1" type="double"/>
+      <param name="mpc_opt/simulated_duration" value="150" type="int"/>
+  
+  </node>
+  <!-- marker -->
+</launch>

@@ -1,0 +1,34 @@
+covariance_matrix_for_control_input_q: [1, 0, .0,
+                                        0, 1, .0, 
+                                        .0, 0.0, 1]
+covariance_matrix_for_control_input_r: [5000, 0, .0,
+                                        0, 5000, .0,
+                                        .0, 0, 5000]
+covariance_matrix_for_yaw_angle_q: [0.1]
+covariance_matrix_for_yaw_angle_r: [0.1]
+covariance_matrix_for_trajectory_tracker_q: [1, .0, .0,
+                                            .0, 1, .0, 
+                                            .0, .0, 1]
+covariance_matrix_for_trajectory_tracker_r:  [1, .0, .0,
+                                              .0, 1, .0, 
+                                              .0, .0, 1]
+covariance_matrix_for_position_q: [1, 0, .032,
+                                        0, 1, .0,
+                                        .0, 0.0, 1]
+covariance_matrix_for_position_r: [50, 0, .0,
+                                        0, 50, .0,
+                                        .0, 0, 50]
+covariance_matrix_for_nmpc_q: [1, 0, .0,
+                                        0, 1, .0,
+                                        .0, 0.0, 1]
+covariance_matrix_for_nmpc_r: [200, 0, .0,
+                                        0, 200, .0,
+                                        .0, 0, 200]
+horizon: [2]
+corridor_constrains: [1]
+qVTheta: [0.005]
+thetaMax: [3.0]
+stateUpper: [ 6, 6, 6]
+stateLower: [-6, -6, -6]
+inputUpper: [ 0.1, 0.1, 0.1]
+inputLower: [ -0.1, -0.1, -0.1]

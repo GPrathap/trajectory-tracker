@@ -1,0 +1,4 @@
+#ifndef CONFIG_H_IN
+#define CONFIG_H_IN
+#define USE_MOSEK "@ USE_MOSEK @"
+#endif // CONFIG_H_IN

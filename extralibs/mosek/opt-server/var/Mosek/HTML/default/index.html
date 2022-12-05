@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mosek Optimization Server</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+      body {
+      font-family : sans-serif;
+      }
+      #main-div {
+      font-size : 20px;
+      margin-left : 50px;
+      margin-right : 50px;
+      padding-left : 50px;
+      padding-right : 50px;
+      }
+      .task-frame {
+      border : solid thin blue;
+      margin : 10px;
+      padding : 10px;
+      }
+      .element {
+      display : inline-block;
+      }
+
+      .result-frame {
+      border : solid this blue;
+      margin : 10px;
+      padding : 10px;
+      }
+    </style>
+    <!-- <script src="script.js" type="module"></script> -->
+  </head>
+  <body><!-- onload="document.getElementById('btn-filename').onchange = selectFile"> -->
+    <div id="main-div">
+      <center>
+        <p class="logo"><img class="logo" src="webgraphmoseklogocolor.png"/></p>
+
+        <h1>Mosek Optimization Server</h1>
+
+        <p>
+          The MOSEK Optimization Server is a service that solves optimization problem using MOSEK.
+        </p>
+
+        <p>
+          The MOSEK Optimization Server can be used from the MOSEK
+          library though the API call "<tt>optimizeremote</tt>", or by
+          submitting problems directly through the web API.
+        </p>
+
+        <p>
+          The server can be set up to allow unencrypted anonymous HTTP
+          access, or to require a login or access token over
+          HTTPS. Optionally, a web API for administering the server
+          can be enabled.
+        </p>
+
+        <p> Please see <a href="https://www.mosek.com/documentation/">MOSEK documentation</a> for details.</p>
+
+        <!-- <p>           -->
+        <!--   <div class="task-frame"> -->
+        <!--     Try it here! Select a local file: -->
+        <!--     <div class="element-row"> -->
+        <!--       <div class="element"><input type="file" id="btn-filename"> </div> -->
+        <!--     </div> -->
+        <!--     <div class="element-row" id="row-result"> -->
+        <!--     </div> -->
+        <!--   </div> -->
+      </center>
+    </div>
+  </body>
+</html>

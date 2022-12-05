@@ -1,0 +1,7 @@
+---
+setw -g mouse on
+roslaunch vrx_bringup sensored_boat.launch
+---
+roslaunch vrx_tasks missioncontrol.launch
+---
+roslaunch state_machine fsm_trajectory_linearized_traj.launch

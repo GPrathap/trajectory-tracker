@@ -1,0 +1,11 @@
+---
+setw -g mouse on
+roslaunch drone_sim sim.launch 
+---
+roslaunch state_machine take_off.launch 
+---
+roslaunch state_machine px4_reg.launch 
+---
+roslaunch state_machine rviz_p4.launch
+---
+roslaunch state_machine fsm_trajectory_linearized_traj.launch

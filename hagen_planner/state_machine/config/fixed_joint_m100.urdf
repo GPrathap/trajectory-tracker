@@ -1,0 +1,15 @@
+<robot name="drone_fixed_joint">
+  <link name="base_link" />
+  <link name="d400_link" />
+    <joint name="d400_joint_link" type="fixed">
+    <parent link="base_link"/>
+    <child link="d400_link"/>
+    <origin xyz="0.105  0.0 -0.03" rpy="0.0 0.0 0.0"/> 
+  </joint>
+
+<!-- 
+90 ged: 1.5708
+45 deg: 0,785398
+-->
+</robot>
+

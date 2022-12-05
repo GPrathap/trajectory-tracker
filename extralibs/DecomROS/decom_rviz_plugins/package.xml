@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>decom_rviz_plugins</name>
+  <version>0.0.0</version>
+  <description>The decom_rviz_plugins package</description>
+
+  <maintainer email="sikang@todo.todo">sikang</maintainer>
+
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>catkin_simple</build_depend>
+  <depend>roscpp</depend>
+  <depend>rviz</depend>
+  <depend>decom_ros_msgs</depend>
+
+  <export>
+    <rviz plugin="${prefix}/plugin_description.xml"/>
+  </export>
+</package>

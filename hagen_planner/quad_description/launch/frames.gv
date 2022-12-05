@@ -1,0 +1,20 @@
+digraph G {
+"base_link" -> "r200"[label="Broadcaster: /drone_fixed_joints_pub\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 647.880 sec old)\nBuffer length: 0.000 sec\n"];
+"map" -> "base_link"[label="Broadcaster: /mavros\nAverage rate: 30.208 Hz\nMost recent transform: 647.852 ( 0.028 sec old)\nBuffer length: 4.800 sec\n"];
+"map" -> "map_ned"[label="Broadcaster: /mavros\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 647.880 sec old)\nBuffer length: 0.000 sec\n"];
+"odom" -> "odom_ned"[label="Broadcaster: /mavros\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 647.880 sec old)\nBuffer length: 0.000 sec\n"];
+"base_link" -> "quad_base_link_frd"[label="Broadcaster: /mavros\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 647.880 sec old)\nBuffer length: 0.000 sec\n"];
+"base_link" -> "quad_base_link_inertia"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 647.880 sec old)\nBuffer length: 0.000 sec\n"];
+"base_link" -> "rotor_0"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.213 Hz\nMost recent transform: 647.808 ( 0.072 sec old)\nBuffer length: 4.700 sec\n"];
+"base_link" -> "rotor_1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.213 Hz\nMost recent transform: 647.808 ( 0.072 sec old)\nBuffer length: 4.700 sec\n"];
+"base_link" -> "rotor_2"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.213 Hz\nMost recent transform: 647.808 ( 0.072 sec old)\nBuffer length: 4.700 sec\n"];
+"base_link" -> "rotor_3"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.213 Hz\nMost recent transform: 647.808 ( 0.072 sec old)\nBuffer length: 4.700 sec\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 647.880"[ shape=plaintext ] ;
+ }->"map";
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 647.880"[ shape=plaintext ] ;
+ }->"odom";
+}

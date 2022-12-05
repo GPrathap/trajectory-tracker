@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<package format="2">
+    <name>traj_common</name>
+    <version>0.0.0</version>
+    <description>The traj_common package</description>
+
+    <maintainer email="ggeesara@gmail.com">GPrathap</maintainer>
+    <license>TODO</license>
+
+    <buildtool_depend>catkin</buildtool_depend>
+    <build_depend>spline_opt</build_depend>
+    <build_depend>roscpp</build_depend>
+    <build_depend>std_msgs</build_depend>
+    <build_depend>xmlrpcpp</build_depend>
+    <build_depend>jsk_recognition_msgs</build_depend>
+    <build_depend>geometry_msgs</build_depend>
+    <build_depend>decom_ros_msgs</build_depend>
+    <build_depend>hagen_msgs</build_depend>
+    <build_depend>nav_msgs</build_depend>
+    <build_depend>decom_rviz_plugins</build_depend>
+    <build_depend>motion_model</build_depend>
+    <build_depend>motion_model</build_depend>
+
+    <build_export_depend>spline_opt</build_export_depend>
+    <build_export_depend>roscpp</build_export_depend>
+    <build_export_depend>std_msgs</build_export_depend>
+    <build_export_depend>xmlrpcpp</build_export_depend>
+    <build_export_depend>jsk_recognition_msgs</build_export_depend>
+    <build_export_depend>geometry_msgs</build_export_depend>
+    <build_export_depend>decom_ros_msgs</build_export_depend>
+    <build_export_depend>hagen_msgs</build_export_depend>
+    <build_export_depend>nav_msgs</build_export_depend>
+    <build_export_depend>decom_rviz_plugins</build_export_depend>
+    <build_export_depend>motion_model</build_export_depend>
+    <build_export_depend>motion_model</build_export_depend>
+
+    <exec_depend>spline_opt</exec_depend>
+    <exec_depend>roscpp</exec_depend>
+    <exec_depend>std_msgs</exec_depend>
+    <exec_depend>xmlrpcpp</exec_depend>
+    <exec_depend>jsk_recognition_msgs</exec_depend>
+    <exec_depend>geometry_msgs</exec_depend>
+    <exec_depend>decom_ros_msgs</exec_depend>
+    <exec_depend>hagen_msgs</exec_depend>
+    <exec_depend>nav_msgs</exec_depend>
+    <exec_depend>decom_rviz_plugins</exec_depend>
+    <exec_depend>motion_model</exec_depend>
+
+    <export>
+  </export>
+</package>
