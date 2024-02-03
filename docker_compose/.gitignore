@@ -1,0 +1,19 @@
+*.log
+__pycache__/
+
+# Docker container
+/docker/ros2/.ros/*
+/docker/ros2/.gazebo/*
+/data/*
+# ROS Workspace
+/aoc_strawberry_scenario_ws/build/*
+/aoc_strawberry_scenario_ws/install/*
+/aoc_strawberry_scenario_ws/log/*
+/aoc_strawberry_scenario_ws/src/*
+
+# Editor, IDE
+/.idea/
+.vscode
+*.code-workspace
+
+!.gitkeep

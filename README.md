@@ -24,7 +24,7 @@ Working with dynamic obstacles [test1](https://youtu.be/STLNWpAXBbg),[test2](htt
 
 ## Install Docker Container
 
-  Follow the instructions in trajectory-tracker/docker_container
+  Follow the instructions in `trajectory-tracker/docker_compose`
 
 ##### These instructions assume you have the necessary tools and dependencies for building the project without Docker
 
