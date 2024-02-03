@@ -15,12 +15,19 @@ Checking the behaviour in a challenging environment [test1](https://youtu.be/g6x
 Working with dynamic obstacles [test1](https://youtu.be/STLNWpAXBbg),[test2](https://youtu.be/2e4NsGbWfR8), [Testing on a simulated environment](https://youtu.be/szW8HNX8O3M),[ Estimating mean computation time or run-time](https://youtu.be/jyDe5BSigm8). 
 
 ## Table of Contents
-
+* [Docker container](#Install-Docker-Container)
 * [Prerequisites](#Prerequest)
 * [Building with ROS](#2-Building-with-ROS)
 * [Running the trajectory tracker](#3-Running-the-trajectory-tracker)
 * [Running the trajectory tracker in a docker container](#4-Running-the-trajectory-tracker-in-a-docker-container)
 * [Test dataset](#5-test-dataset)
+
+## Install Docker Container
+
+  Follow the instructions in trajectory-tracker/docker_container
+
+##### These instructions assume you have the necessary tools and dependencies for building the project without Docker
+
 
 ## 1. Prerequisites 
 
