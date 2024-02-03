@@ -10,7 +10,7 @@
 
   <!-- <node pkg="tf" name="world_map_tf" type="static_transform_publisher" args="0 0 0 0 0 0 map map 100" /> -->
   <!-- <node pkg="tf" name="baselink_map_tf" type="static_transform_publisher" args="0 0 0 0 0 0  map base_link 100" /> -->
-
+  <include file="$(find state_machine)/launch/rviz_p4.launch"/>
   <node pkg="octomap_server" type="octomap_server_node" name="octomap_server">
                 <param name="resolution" value="$(arg map_resolution)" />
                 <param name="frame_id" type="string" value="map" />
@@ -25,10 +25,6 @@
                <!-- <remap from="cloud_in" to="/d400/depth/color/points" />  -->
                <remap from="cloud_in" to="/r200/depth/points" /> 
                 <!-- <remap from="cloud_in" to="/velodyne_points_trasfomed" /> -->
-
-  </node>
-
-  <node pkg="state_machine" name="mtnode" type="run_odom.py" output="screen"> 
 
   </node>
   
@@ -115,8 +111,10 @@
 
    <!-- <include file="$(find state_machine)/launch/record_bags.launch" /> -->
    <!-- <include file="$(find drone_sim)/launch/sim.launch">
-   <inlcude file="$(find state_machine)/launch/rviz_p4.launch"/>
+   
    <include file="$(find state_machine)/launch/take_off.launch"/>
    <include file="$(find state-machine)/launch/px4_reg.launch"/> -->
+
+  
 
 </launch>
