@@ -1,4 +1,4 @@
-DOCKER_IMG="prathap/drone_node:v1"
+DOCKER_IMG="prathap/drone_node:v4"
 DOCKER_CONATINER_NAME="ros_trajectory_tracker"
 HOME_DIRECTORY="/home/$USER/ros_trajectory_tracker"
 mkdir -p $HOME_DIRECTORY
